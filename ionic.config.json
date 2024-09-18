@@ -1,0 +1,7 @@
+{
+  "name": "equinox",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
