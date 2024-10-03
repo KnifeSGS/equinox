@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonFab, IonFabButton, IonIcon, IonGrid, IonRow, IonCol, IonImg } from '@ionic/angular/standalone';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 import { PhotoService } from '../services/photo.service';
@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [IonImg, IonCol, IonRow, IonGrid, IonIcon, IonFabButton, IonFab, IonHeader, IonToolbar, IonTitle, IonContent, ExploreContainerComponent, CommonModule],
 })
-export class Tab3Page {
+export class Tab3Page implements OnInit{
 
   photoService = inject(PhotoService)
 
@@ -20,4 +20,9 @@ export class Tab3Page {
   }
 
   constructor() {}
+
+  async ngOnInit() {
+    await this.photoService.loadSaved()
+  }
+  
 }
